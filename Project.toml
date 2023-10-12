@@ -1,0 +1,4 @@
+name = "Pomodoro"
+uuid = "64f3cc0d-d1d5-4f91-ad24-162f0e0caa30"
+authors = ["Domagoj Marsic <dmars@protonmail.com>"]
+version = "0.1.0"
