@@ -14,10 +14,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-# Contact:
-# https://github.com/dmarsic
-# <dmars+github@protonmail.com>
 #------------------------------------------------------------------------------
 
 include("src/Pomodoro.jl")
@@ -34,4 +30,21 @@ const LONG_REST_TIME = 30 * 60
 # How many iterations of focused time / short rest time before long rest time
 const LONG_REST_COUNT = 4
 
-Pomodoro.pomodoro(WORK_TIME, REST_TIME, LONG_REST_TIME, LONG_REST_COUNT)
+# Show notification bubble on state change
+const NOTIFY = true
+
+# Wait for confirmation before changing state
+const PAUSE_CONFIRM = true
+
+struct Options
+    work_time_s::Integer
+    rest_time_s::Integer
+    long_rest_time_s::Integer
+    long_rest_count::Integer
+    notify::Bool
+    pause_confirm_state_change::Bool
+end
+
+Pomodoro.pomodoro(Options(
+    WORK_TIME, REST_TIME, LONG_REST_TIME, LONG_REST_COUNT, NOTIFY, PAUSE_CONFIRM
+))
